@@ -1,9 +1,13 @@
 import { z, defineCollection } from "astro:content";
+import { meetingPoints } from "../lib/meetingPoints";
+
+const ZodMeetingSpot = z.enum(
+  Object.keys(meetingPoints) as unknown as readonly [string, ...string[]]
+);
 
 const eventsCollection = defineCollection({
   schema: z.object({
-    mapEmbedUrl: z.string(),
-    appleMapUrl: z.string(),
+    meetingPoint: ZodMeetingSpot,
     startTime: z.date(),
   }),
 });
