@@ -1,0 +1,38 @@
+---
+import Maps from "../../components/Maps.astro";
+import Layout from "../../layouts/Layout.astro";
+import { shortTitle } from "../../lib/constants";
+import { getUpcomingRuns } from "../../lib/runs";
+
+const runs = await getUpcomingRuns();
+---
+
+<Layout title={`Upcoming Runs - ${shortTitle}`}>
+  <h3>Upcoming Runs</h3>
+  {
+    runs.map((run) => (
+      <section class="card">
+        <h4>{run.data.startTime.toLocaleString()}</h4>
+        <a href={`/runs/${run.slug}`}>More info</a>
+        <Maps run={run} />
+      </section>
+    ))
+  }
+</Layout>
+
+<style lang="scss">
+  .card {
+    border-radius: 8px;
+    border: solid grey 1px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+
+    h4 {
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+</style>

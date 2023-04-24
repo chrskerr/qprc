@@ -1,0 +1,21 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  run: CollectionEntry<"runs">;
+};
+
+const { run } = Astro.props;
+---
+
+<iframe
+  src={run.data.mapEmbedUrl}
+  width="100%"
+  height="250"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"></iframe>
+<small>
+  <a href={run.data.appleMapUrl}>Open in Apple Maps</a>
+</small>

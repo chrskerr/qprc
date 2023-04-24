@@ -1,0 +1,31 @@
+---
+export const prerender = true;
+
+import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+import { shortTitle } from "../../../lib/constants";
+import Maps from "../../../components/Maps.astro";
+
+export async function getStaticPaths() {
+  const runs = await getCollection("runs");
+  return runs.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+type Props = {
+  entry: CollectionEntry<"runs">;
+};
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={`${entry.slug} - ${shortTitle}`}>
+  <h3>Run</h3>
+  <hr />
+  <h4>{entry.data.startTime.toLocaleString()}</h4>
+  <Content />
+  <Maps run={entry} />
+</Layout>
