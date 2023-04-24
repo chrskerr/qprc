@@ -1,0 +1,36 @@
+$color-blossom: #ff00c1;
+$color-fade: #ff33cd;
+
+$color-bg: #ffffff;
+$color-bg-alt: #f7f7f7;
+
+$color-text: #222222;
+$font-size-base: 1.8rem;
+
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+$font-family-heading: $font-family-base;
+
+@import "sakura.css/css/normalize.css";
+@import "sakura.css/scss/_main.scss";
+
+a {
+  &:hover {
+    border-color: $color-fade;
+  }
+
+  &.active {
+    border-bottom: 2px solid $color-blossom;
+  }
+}
+
+a,
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  transition-property: color, background-color, border;
+  transition-duration: 100ms;
+  transition-timing-function: linear;
+}

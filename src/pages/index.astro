@@ -1,15 +1,37 @@
 ---
+export const prerender = true;
+
+import Layout from "../layouts/Layout.astro";
+import { longTitle } from "../lib/constants";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title={longTitle}>
+  <h3>Home</h3>
+  <p>Hey there, fellow runners!</p>
+
+  <p>
+    Are you looking for a fun new way to stay active and meet some awesome
+    people? Then you're in luck because we're starting a social running group in
+    Maroochydore, Queensland, and we want you to be a part of it!
+  </p>
+
+  <p>
+    We'll be meeting once a week on Wednesday evenings to get our run on and
+    explore the beautiful scenery in the area. And, the best part? Afterward,
+    we'll be heading out for some well-deserved dinner and drinks. So, whether
+    you're a seasoned runner or just starting out, this is the perfect
+    opportunity to get moving and socialize at the same time.
+  </p>
+
+  <p>
+    We know how daunting it can be to try something new, especially when it
+    comes to fitness. But don't worry, we're a friendly bunch who loves to
+    welcome new faces. Plus, there's no pressure to stick around for
+    dinner/drinks if you don't feel like it.
+  </p>
+
+  <p>
+    So, grab your running shoes and join us for some fun and friendship. We
+    promise you won't regret it!
+  </p>
+</Layout>
