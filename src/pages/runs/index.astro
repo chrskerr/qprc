@@ -2,6 +2,7 @@
 import Maps from "../../components/Maps.astro";
 import Layout from "../../layouts/Layout.astro";
 import { shortTitle } from "../../lib/constants";
+import { getBrisbaneDatetimeString, getDateSlug } from "../../lib/dates";
 import { getUpcomingRuns } from "../../lib/runs";
 
 const runs = await getUpcomingRuns();
@@ -12,8 +13,8 @@ const runs = await getUpcomingRuns();
   {
     runs.map((run) => (
       <section class="card">
-        <h4>{run.data.startTime.toLocaleString()}</h4>
-        <a href={`/runs/${run.slug}`}>More info</a>
+        <h4>{getBrisbaneDatetimeString(run.data.startTime)}</h4>
+        <a href={`/runs/${getDateSlug(run.data.startTime)}`}>More info</a>
         <Maps run={run} />
       </section>
     ))
