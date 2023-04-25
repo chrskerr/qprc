@@ -5,12 +5,12 @@ import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import { shortTitle } from "../../../lib/constants";
 import Map from "../../../components/Map.astro";
-import { getBrisbaneDatetimeString, getDateSlug } from "../../../lib/dates";
+import { getBrisbaneDatetimeString } from "../../../lib/dates";
 
 export async function getStaticPaths() {
   const runs = await getCollection("runs");
   return runs.map((entry) => ({
-    params: { slug: getDateSlug(entry.data.startTime) },
+    params: { slug: entry.slug },
     props: { entry },
   }));
 }

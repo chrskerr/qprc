@@ -23,6 +23,3 @@ export function getIcsDateArray(
   ];
 }
 
-export function getDateSlug(date: Date): string {
-  return format(getZonedTime(date), "yyyy-MM-dd");
-}

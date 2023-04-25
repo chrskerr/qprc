@@ -25,6 +25,7 @@ async function generateIcs() {
           status: "CONFIRMED",
           title: `RUN: ${longTitle}`,
           location: meetingPoint.location,
+          url: `https://www.qprc.com.au/run/${run.slug}`
         };
       })
       .filter((event): event is EventAttributes => !!event)
