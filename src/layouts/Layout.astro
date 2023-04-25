@@ -1,6 +1,5 @@
 ---
-import { Picture } from "@astrojs/image/components";
-import logo from "../images/base-logo.png";
+import logo from "../images/base-logo.png?w=300&format=avif;webp;&picture";
 
 import { longTitle, metaDescription, socialImageLink } from "../lib/constants";
 
@@ -36,6 +35,9 @@ const jsonLdData = {
     longitude: "153.10",
   },
 };
+
+const avifSrcset = logo.sources.avif.map((i) => i.src).join(", ");
+const webpSrcset = logo.sources.webp.map((i) => i.src).join(", ");
 ---
 
 <html lang="en">
@@ -64,13 +66,11 @@ const jsonLdData = {
     <div class="prose prose-orange dark:prose-invert mx-auto my-12">
       <nav class="flex justify-between items-center">
         <div>
-          <Picture
-            src={logo}
-            alt="QPRC Logo"
-            width={300}
-            widths={[300]}
-            class="mb-2"
-          />
+          <picture>
+            <source type="image/avif" srcset={avifSrcset} />
+            <source type="image/webp" srcset={webpSrcset} />
+            <img src={logo.fallback.src} width={logo.fallback.w} />
+          </picture>
           <h1 class="text-base my-0 font-normal">{longTitle}</h1>
         </div>
         <ul class="list-none gap-2 pl-0">
