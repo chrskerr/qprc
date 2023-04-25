@@ -1,9 +1,8 @@
 ---
-import { Picture } from "@astrojs/image/components";
-import logo from "../assets/logo.png";
+import { Image } from "@astrojs/image/components";
+import logo from "../images/base-logo.png";
 
-import "../styles/main.scss";
-import { longTitle, shortTitle } from "../lib/constants";
+import { longTitle, metaDescription, socialImageLink } from "../lib/constants";
 
 type Props = {
   title: string;
@@ -17,36 +16,66 @@ const links: Array<{ icon: string; label: string; href: string }> = [
   { icon: "🙋‍♀️", label: "FAQs", href: "/faqs" },
   { icon: "🧐", label: "About", href: "/about" },
 ];
+
+const jsonLdData = {
+  "@context": "http://www.schema.org",
+  "@type": "SportsTeam",
+  name: longTitle,
+  logo: socialImageLink,
+  description: metaDescription,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Maroochydore ",
+    addressRegion: "QLD",
+    postalCode: "4558",
+    addressCountry: "Australia",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "-26.65",
+    longitude: "153.10",
+  },
+};
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <main>
-      <Picture
-        src={logo}
-        alt="QPRC Logo"
-        sizes="35vw"
-        widths={[100, 200, 300]}
-        class="float"
-      />
-      <h1>{shortTitle}</h1>
-      <p>{longTitle}</p>
 
-      <nav>
-        <ul>
+    <title>{title}</title>
+    <meta name="description" content={metaDescription} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content={longTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={socialImageLink} />
+  </head>
+
+  <body>
+    <div class="prose prose-orange dark:prose-invert mx-auto my-12">
+      <nav class="flex justify-between items-center">
+        <div>
+          <Image src={logo} alt="QPRC Logo" width={300} class="mb-2" />
+          <h1 class="text-base my-0 font-normal">{longTitle}</h1>
+        </div>
+        <ul class="list-none gap-2 pl-0">
           {
             links.map((link) => (
               <li>
                 <a
                   href={link.href}
-                  class:list={{ active: link.href === Astro.url.pathname }}
+                  class:list={{
+                    "no-underline": link.href !== Astro.url.pathname,
+                  }}
                 >
                   {link.label}
                 </a>
@@ -56,26 +85,22 @@ const links: Array<{ icon: string; label: string; href: string }> = [
         </ul>
       </nav>
 
-      <section>
-        <slot />
-      </section>
-    </main>
+      <hr class="mt-10 -mb-2" />
+
+      <main>
+        <section>
+          <slot />
+        </section>
+      </main>
+
+      <hr class="mt-10 mb-10" />
+
+      <footer>
+        <p>Footer in progress</p>
+      </footer>
+    </div>
   </body>
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLdData)}
+  ></script>
 </html>
-
-<style lang="scss">
-  h1 {
-    text-decoration: underline;
-    text-decoration-style: wavy;
-    text-decoration-color: #ff00c1;
-    text-underline-offset: 6px;
-  }
-
-  .float {
-    float: right;
-    width: 35%;
-    max-width: 300px;
-    aspect-ratio: 350/569;
-    margin: 0 0 2rem 2rem;
-  }
-</style>

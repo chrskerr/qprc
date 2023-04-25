@@ -9,7 +9,7 @@ const runs = await getUpcomingRuns();
 ---
 
 <Layout title={`Upcoming Runs - ${shortTitle}`}>
-  <h3>Upcoming Runs</h3>
+  <h2>Upcoming Runs</h2>
   {
     runs.map((run) => (
       <section class="card">
@@ -21,19 +21,19 @@ const runs = await getUpcomingRuns();
   }
 </Layout>
 
-<style lang="scss">
+<style>
   .card {
     border-radius: 8px;
     border: solid grey 1px;
     padding: 2rem;
     margin-bottom: 3rem;
+  }
 
-    h4 {
-      margin-top: 0;
-    }
+  .card h4 {
+    margin-top: 0;
+  }
 
-    p {
-      margin-bottom: 0;
-    }
+  .card p {
+    margin-bottom: 0;
   }
 </style>

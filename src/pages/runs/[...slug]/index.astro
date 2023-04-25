@@ -26,9 +26,7 @@ const formattedTime = getBrisbaneDatetimeString(entry.data.startTime);
 ---
 
 <Layout title={`${formattedTime} - ${shortTitle}`}>
-  <h3>Run</h3>
-  <hr />
-  <h4>{formattedTime}</h4>
+  <h2>{formattedTime}</h2>
   <Content />
   <Maps run={entry} />
 </Layout>
