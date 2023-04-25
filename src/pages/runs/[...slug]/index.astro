@@ -28,5 +28,9 @@ const formattedTime = getBrisbaneDatetimeString(entry.data.startTime);
 <Layout title={`${formattedTime} - ${shortTitle}`}>
   <h2>{formattedTime}</h2>
   <Content />
+  <p>
+    After every run, we'll pick somewhere nearby for a drink or a meal, so
+    please feel free to hang around for as long as you'd like!
+  </p>
   <Maps run={entry} />
 </Layout>

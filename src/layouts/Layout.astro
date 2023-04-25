@@ -9,11 +9,10 @@ type Props = {
 
 const { title } = Astro.props;
 
-const links: Array<{ icon: string; label: string; href: string }> = [
-  { icon: "🏝️", label: "Home", href: "/" },
-  { icon: "🏃", label: "Upcoming runs", href: "/runs" },
-  { icon: "🙋‍♀️", label: "FAQs", href: "/faqs" },
-  { icon: "🧐", label: "About", href: "/about" },
+const links: Array<{ label: string; href: string }> = [
+  { label: "Home", href: "/" },
+  { label: "Upcoming runs", href: "/runs" },
+  { label: "Info", href: "/info" },
 ];
 
 const jsonLdData = {
@@ -112,7 +111,11 @@ const webpSrcset = logo.sources.webp.map((i) => i.src).join(", ");
       <hr class="mt-10 mb-10" />
 
       <footer>
-        <p>Footer in progress</p>
+        <p>
+          Open this link <a href="webcal://www.qprc.com.au/cal.ics"
+            >https://www.qprc.com.au/cal.ics</a
+          > to subscribe to new events!
+        </p>
       </footer>
     </div>
   </body>
