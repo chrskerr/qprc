@@ -1,5 +1,5 @@
 ---
-import logo from "../images/base-logo.png?w=300&format=avif;webp;&picture";
+import logo from "../images/base-logo.png?w=450&format=avif;webp;&picture";
 
 import { longTitle, metaDescription, socialImageLink } from "../lib/constants";
 
@@ -62,8 +62,8 @@ const webpSrcset = logo.sources.webp.map((i) => i.src).join(", ");
     <meta property="og:image" content={socialImageLink} />
   </head>
 
-  <body>
-    <div class="prose prose-orange dark:prose-invert mx-auto p-4 sm:my-12">
+  <body class="bg-gray-50 dark:bg-gray-950">
+    <div class="prose dark:prose-invert mx-auto p-4 sm:my-12">
       <header
         class="flex flex-col sm:flex-row sm:justify-between sm:items-center"
       >
@@ -73,8 +73,8 @@ const webpSrcset = logo.sources.webp.map((i) => i.src).join(", ");
             <source type="image/webp" srcset={webpSrcset} />
             <img
               src={logo.fallback.src}
-              width={logo.fallback.w}
-              height={logo.fallback.h}
+              width={(logo.fallback.w * 2) / 3}
+              height={(logo.fallback.h * 2) / 3}
               class="mt-0 mb-2"
               alt="QPRC logo"
             />
@@ -120,3 +120,25 @@ const webpSrcset = logo.sources.webp.map((i) => i.src).join(", ");
   <script type="application/ld+json" set:html={JSON.stringify(jsonLdData)}
   ></script>
 </html>
+
+<style is:global>
+  a {
+    color: theme(colors.orange.700) !important;
+    @apply transition-colors;
+  }
+
+  a:hover {
+    color: theme(colors.orange.800) !important;
+    @apply underline;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    a {
+      color: theme(colors.orange.500) !important;
+    }
+
+    a:hover {
+      color: theme(colors.orange.600) !important;
+    }
+  }
+</style>
