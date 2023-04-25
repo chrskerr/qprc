@@ -69,7 +69,11 @@ const webpSrcset = logo.sources.webp.map((i) => i.src).join(", ");
           <picture>
             <source type="image/avif" srcset={avifSrcset} />
             <source type="image/webp" srcset={webpSrcset} />
-            <img src={logo.fallback.src} width={logo.fallback.w} />
+            <img
+              src={logo.fallback.src}
+              width={logo.fallback.w}
+              height={logo.fallback.h}
+            />
           </picture>
           <h1 class="text-base my-0 font-normal">{longTitle}</h1>
         </div>
