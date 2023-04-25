@@ -1,24 +1,9 @@
 ---
 export const prerender = true;
 
+import Accordion from "../components/Accordion.astro";
 import Layout from "../layouts/Layout.astro";
 import { shortTitle } from "../lib/constants";
-
-const faqs: Array<{ question: string; answer: string[] }> = [
-  {
-    question: "So what is this all about?",
-    answer: [
-      "We (Kate and Chris) wanted to find a way to create a small community based in our local around enjoying an activity that we enjoy.",
-      " So we are starting this club to bring people together to stay fast and make friends.",
-    ],
-  },
-  {
-    question: "Whats the plan?",
-    answer: [
-      "We meeting most Wednesday to train together for about 1 hour, and then feel free to stay as long as you'd like in the evening doing something social.",
-    ],
-  },
-];
 ---
 
 <Layout title={`Info - ${shortTitle}`}>
@@ -45,22 +30,15 @@ const faqs: Array<{ question: string; answer: string[] }> = [
 
   <h2>Questions</h2>
 
-  {
-    faqs.map((faq) => (
-      <details>
-        <summary class="font-bold mb-2">{faq.question}</summary>
-        {faq.answer.map((answer, i) => {
-          const isLast = i === faq.answer.length - 1;
-          return (
-            <p
-              class="mt-0 ml-[18px]"
-              class:list={{ "mb-4": isLast, "mb-2": !isLast }}
-            >
-              {answer}
-            </p>
-          );
-        })}
-      </details>
-    ))
-  }
+  <Accordion
+    question="So what is this all about?"
+    answer={[
+      "We (Kate and Chris) wanted to find a way to create a small community based in our local around enjoying an activity that we enjoy.",
+      " So we are starting this club to bring people together to stay fast and make friends.",
+    ]}
+  />
+  <Accordion
+    question="Whats the plan?"
+    answer="We meeting most Wednesday to train together for about 1 hour, and then feel free to stay as long as you'd like in the evening doing something social."
+  />
 </Layout>

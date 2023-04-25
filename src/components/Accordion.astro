@@ -1,0 +1,30 @@
+---
+type Props = {
+  question: string;
+  answer: string | string[];
+  open?: boolean;
+};
+
+const { question, answer, open = false } = Astro.props;
+---
+
+<details open={open}>
+  <summary class="font-bold mb-2">{question}</summary>
+  {
+    Array.isArray(answer) ? (
+      answer.map((answer, i) => {
+        const isLast = i === answer.length - 1;
+        return (
+          <p
+            class="mt-0 ml-[18px]"
+            class:list={{ "mb-4": isLast, "mb-2": !isLast }}
+          >
+            {answer}
+          </p>
+        );
+      })
+    ) : (
+      <p class="mt-0 ml-[18px] mb-4">{answer}</p>
+    )
+  }
+</details>
