@@ -4,7 +4,7 @@ export const prerender = true;
 import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import { shortTitle } from "../../../lib/constants";
-import Maps from "../../../components/Maps.astro";
+import Map from "../../../components/Map.astro";
 import { getBrisbaneDatetimeString, getDateSlug } from "../../../lib/dates";
 
 export async function getStaticPaths() {
@@ -32,5 +32,5 @@ const formattedTime = getBrisbaneDatetimeString(entry.data.startTime);
     After every run, we'll pick somewhere nearby for a drink or a meal, so
     please feel free to hang around for as long as you'd like!
   </p>
-  <Maps run={entry} />
+  <Map run={entry} />
 </Layout>

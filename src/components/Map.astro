@@ -7,25 +7,27 @@ type Props = {
 };
 
 const { run } = Astro.props;
-
 const meetingPoint = meetingPoints[run.data.meetingPoint];
 ---
 
 {
   !!meetingPoint && (
     <>
+      <p class="mb-2">
+        <b>{meetingPoint.location}</b>
+      </p>
       <iframe
+        title={`Map to ${meetingPoint.location}`}
         src={meetingPoint.embedUrl}
         width="100%"
         height="250"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen={false}
+        referrerpolicy="no-referrer"
+        class="border"
       />
-      <small>
-        <a href={meetingPoint.appleUrl}>Open in Apple Maps</a>
-      </small>
+      <a href={meetingPoint.appleUrl}>
+        <small>Open in Apple Maps</small>
+      </a>
     </>
   )
 }

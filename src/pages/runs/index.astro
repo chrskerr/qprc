@@ -1,5 +1,5 @@
 ---
-import Maps from "../../components/Maps.astro";
+import Map from "../../components/Map.astro";
 import Layout from "../../layouts/Layout.astro";
 import { shortTitle } from "../../lib/constants";
 import { getBrisbaneDatetimeString, getDateSlug } from "../../lib/dates";
@@ -15,7 +15,7 @@ const runs = await getUpcomingRuns();
       <section class="card">
         <h4>{getBrisbaneDatetimeString(run.data.startTime)}</h4>
         <a href={`/runs/${getDateSlug(run.data.startTime)}`}>More info</a>
-        <Maps run={run} />
+        <Map run={run} />
       </section>
     ))
   }
