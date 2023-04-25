@@ -1,5 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Picture } from "@astrojs/image/components";
 import logo from "../images/base-logo.png";
 
 import { longTitle, metaDescription, socialImageLink } from "../lib/constants";
@@ -64,7 +64,13 @@ const jsonLdData = {
     <div class="prose prose-orange dark:prose-invert mx-auto my-12">
       <nav class="flex justify-between items-center">
         <div>
-          <Image src={logo} alt="QPRC Logo" width={300} class="mb-2" />
+          <Picture
+            src={logo}
+            alt="QPRC Logo"
+            width={300}
+            widths={[300]}
+            class="mb-2"
+          />
           <h1 class="text-base my-0 font-normal">{longTitle}</h1>
         </div>
         <ul class="list-none gap-2 pl-0">
