@@ -11,29 +11,20 @@ const runs = await getUpcomingRuns();
 <Layout title={`Upcoming Runs - ${shortTitle}`}>
   <h2>Upcoming Runs</h2>
   {
-    runs.map((run) => (
-      <section class="card">
-        <h4>{getBrisbaneDatetimeString(run.data.startTime)}</h4>
-        <a href={`/run/${run.slug}`}>More info</a>
-        <Map run={run} />
-      </section>
-    ))
+    runs.map((run) => {
+      const labelId = `all-upcoming-runs-label-${run.slug}`;
+      return (
+        <article
+          aria-labelledby={labelId}
+          class="rounded-lg border border-gray-400 p-8 mb-12"
+        >
+          <h3 id={labelId} class="mt-0">
+            {getBrisbaneDatetimeString(run.data.startTime)}
+          </h3>
+          <a href={`/run/${run.slug}`}>More info</a>
+          <Map run={run} />
+        </article>
+      );
+    })
   }
 </Layout>
-
-<style>
-  .card {
-    border-radius: 8px;
-    border: solid grey 1px;
-    padding: 2rem;
-    margin-bottom: 3rem;
-  }
-
-  .card h4 {
-    margin-top: 0;
-  }
-
-  .card p {
-    margin-bottom: 0;
-  }
-</style>
