@@ -41,7 +41,7 @@ export const get: APIRoute = async () => {
   return new Response(events?.value, {
     headers: new Headers({
       "content-type": "text/calendar",
-      "cache-control": "public, max-age=3600, must-revalidate",
+      "cache-control": "public, max-age=86400, must-revalidate",
     }),
   });
 };
