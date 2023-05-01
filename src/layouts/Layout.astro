@@ -12,7 +12,7 @@ const { title } = Astro.props;
 const links: Array<{ label: string; href: string }> = [
   { label: "Home", href: "/" },
   { label: "Upcoming runs", href: "/run" },
-  { label: "Info & contact", href: "/info" },
+  { label: "Contact & FAQs", href: "/info" },
 ];
 
 const jsonLdData = {
@@ -114,7 +114,7 @@ const webpSrcset = logo.sources.webp.map((i) => i.src).join(", ");
         <p>
           Open this link <a href="webcal://www.qprc.com.au/cal.ics"
             >https://www.qprc.com.au/cal.ics</a
-          > to subscribe to new events!
+          > to subscribe to our weekly runs!
         </p>
       </footer>
     </div>
