@@ -25,7 +25,8 @@ async function generateIcs() {
           status: "CONFIRMED",
           title: `RUN: ${longTitle}`,
           location: meetingPoint.location,
-          url: `https://www.qprc.com.au/run/${run.slug}`
+          url: `https://www.qprc.com.au/run/${run.slug}`,
+          calName: "QPRC",
         };
       })
       .filter((event): event is EventAttributes => !!event)
@@ -38,6 +39,9 @@ export const get: APIRoute = async () => {
   }
 
   return new Response(events?.value, {
-    headers: new Headers({ "content-type": "text/calendar" }),
+    headers: new Headers({
+      "content-type": "text/calendar",
+      "cache-control": "public, max-age=3600, must-revalidate",
+    }),
   });
 };
