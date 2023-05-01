@@ -17,22 +17,26 @@ const links: Array<{ label: string; href: string }> = [
 
 const jsonLdData = {
   "@context": "http://www.schema.org",
-  "@type": "SportsTeam",
+  "@type": "Organization",
   name: longTitle,
   logo: socialImageLink,
   description: metaDescription,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Maroochydore ",
+    addressLocality: "Maroochydore",
     addressRegion: "QLD",
     postalCode: "4558",
     addressCountry: "Australia",
   },
   url: "https://www.qprc.com.au",
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: "-26.65",
-    longitude: "153.10",
+  areaServed: {
+    "@type": "GeoCircle",
+    geoMidpoint: {
+      "@type": "GeoCoordinates",
+      latitude: "-26.65",
+      longitude: "153.10",
+    },
+    geoRadius: "15000",
   },
 };
 
