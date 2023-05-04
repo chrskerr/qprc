@@ -8,12 +8,12 @@ type PictureData = {
     avif: Source[];
     webp: Source[];
   };
-  fallback: Source & { h: number };
-}
+  img: Source & { h: number };
+};
 
 // https://github.com/JonasKruckenberg/imagetools/blob/main/docs/directives.md#picture
 
-declare module "*&format=avif;webp;&picture" {
+declare module "*&format=avif;webp&as=picture" {
   const out: PictureData;
   export default out;
 }

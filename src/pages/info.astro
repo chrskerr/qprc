@@ -5,17 +5,16 @@ import Accordion from "../components/Accordion.astro";
 import Layout from "../layouts/Layout.astro";
 import { shortTitle } from "../lib/constants";
 
-import chris from "../images/chris_headshot.png?w=400,800&format=avif;webp;&picture";
-import kate from "../images/kate_headshot.png?w=400,800&format=avif;webp;&picture";
-
+import chris from "../images/chris_headshot.png?w=400;800&format=avif;webp&as=picture";
+import kate from "../images/kate_headshot.png?w=400;800&format=avif;webp&as=picture";
 ---
 
 <Layout title={`Info - ${shortTitle}`}>
   <h2>Contact</h2>
 
   <p>
-    Please feel free to get in touch with us for any questions, thoughts or feedback. The
-    easiest approach is one of the following two ways:
+    Please feel free to get in touch with us for any questions, thoughts or
+    feedback. The easiest approach is one of the following two ways:
   </p>
 
   <ol>
@@ -32,22 +31,22 @@ import kate from "../images/kate_headshot.png?w=400,800&format=avif;webp;&pictur
     </li>
   </ol>
 
-  <h2>Questions</h2>  
+  <h2>Questions</h2>
 
   <Accordion
     question="I'm new, what do you look like so I can find you?"
     answer={[
-      "Yay we're excited for you to join! Please look out for your group leads, Kate & Chris. Here's a photo of each of us so you know who to look for."
+      "Yay we're excited for you to join! Please look out for your group leads, Kate & Chris. Here's a photo of each of us so you know who to look for.",
     ]}
     pictures={[
-      { src: kate, alt: "Kate headshot"},
-      { src: chris, alt: "Chris headshot"},
+      { src: kate, alt: "Kate headshot" },
+      { src: chris, alt: "Chris headshot" },
     ]}
   />
   <Accordion
     question="Who organises QPRC and why?"
     answer={[
-      "We (Kate and Chris) wanted to bring people together in the Maroochydore area, around staying active and having a laugh. As keen runners ourselves, we'd noticed there was a gap in the area for a free running group that provides a structured session each week."
+      "We (Kate and Chris) wanted to bring people together in the Maroochydore area, around staying active and having a laugh. As keen runners ourselves, we'd noticed there was a gap in the area for a free running group that provides a structured session each week.",
     ]}
   />
   <Accordion
@@ -55,15 +54,15 @@ import kate from "../images/kate_headshot.png?w=400,800&format=avif;webp;&pictur
     answer="The full session will take about 1 hour. Heading off at 5.30pm, we will jog together as a group to the starting point of the main session. From there Kate or Chris will explain the session that day and we run time based intervals for about 20-25 minutes. This means that the faster runners will run more intervals and cover more distance than the slower runners, allowing everyone to get a great run, at any level of fitness! We'll then regroup and jog back to the starting point by 6.30pm at the latest."
   />
   <Accordion
-  question="Is there a minimal level of fitness required?"
-  answer="No! You can walk as much as needed at anypoint during the run. If you're still not sure, then please reach out to us with any questions."
+    question="Is there a minimal level of fitness required?"
+    answer="No! You can walk as much as needed at anypoint during the run. If you're still not sure, then please reach out to us with any questions."
   />
   <Accordion
-      question="Do we run in bad weather?"
-      answer="Almost always yes! If it's just rain, we'll still be out running. If the weather is more hectic and unsafe, then we will update the event page to let you know if it's been cancelled."
-    />
-    <Accordion
-      question="How do I know if this week's run is on?"
-      answer="If the run is listed on the site - then it's happening! On the odd occasion that we need to cancel a run, it will be very clearly marked as 'cancelled event'. If you are ever unsure, please message the signal group chat to check in."
-    />
+    question="Do we run in bad weather?"
+    answer="Almost always yes! If it's just rain, we'll still be out running. If the weather is more hectic and unsafe, then we will update the event page to let you know if it's been cancelled."
+  />
+  <Accordion
+    question="How do I know if this week's run is on?"
+    answer="If the run is listed on the site - then it's happening! On the odd occasion that we need to cancel a run, it will be very clearly marked as 'cancelled event'. If you are ever unsure, please message the signal group chat to check in."
+  />
 </Layout>

@@ -1,5 +1,6 @@
 ---
-import logo from "../images/base-logo.png?w=450&format=avif;webp;&picture";
+import Picture from "../components/Picture.astro";
+import logo from "../images/base-logo.png?w=300;600&format=avif;webp&as=picture";
 
 import { longTitle, metaDescription, socialImageLink } from "../lib/constants";
 
@@ -39,9 +40,6 @@ const jsonLdData = {
     geoRadius: "15000",
   },
 };
-
-const avifSrcset = logo.sources.avif.map((i) => i.src).join(", ");
-const webpSrcset = logo.sources.webp.map((i) => i.src).join(", ");
 ---
 
 <html lang="en">
@@ -78,17 +76,14 @@ const webpSrcset = logo.sources.webp.map((i) => i.src).join(", ");
         class="flex flex-col sm:flex-row sm:justify-between sm:items-center"
       >
         <div>
-          <picture>
-            <source type="image/avif" srcset={avifSrcset} />
-            <source type="image/webp" srcset={webpSrcset} />
-            <img
-              src={logo.fallback.src}
-              width={(logo.fallback.w * 2) / 3}
-              height={(logo.fallback.h * 2) / 3}
-              class="mt-0 mb-2"
-              alt="QPRC logo"
-            />
-          </picture>
+          <Picture
+            src={logo}
+            alt="QPRC logo"
+            className="mt-0 mb-2"
+            width={300}
+            sizes="300px"
+          />
+
           <h1 class="text-base my-0 font-normal">{longTitle}</h1>
         </div>
         <nav>

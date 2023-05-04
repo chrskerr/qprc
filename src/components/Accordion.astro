@@ -1,40 +1,48 @@
 ---
-import Picture from './Picture.astro';
+import Picture from "./Picture.astro";
 
 type Props = {
   question: string;
   answer: string | string[];
   open?: boolean;
-  pictures?: [{src: PictureData, alt: string,},{src: PictureData, alt: string,}]
+  pictures?: [
+    { src: PictureData; alt: string },
+    { src: PictureData; alt: string }
+  ];
 };
 
 const { question, answer, open = false, pictures = [] } = Astro.props;
 
-const answers = Array.isArray(answer) ? answer : [answer]
+const answers = Array.isArray(answer) ? answer : [answer];
 ---
 
 <details open={open}>
   <summary class="font-bold mb-2">{question}</summary>
   {
     answers.map((answer, i) => {
-        const isLast = i === answer.length - 1;
-        return (
-          <p
-            class="mt-0 ml-[18px]"
-            class:list={{ "mb-4": isLast, "mb-2": !isLast }}
-          >
-            {answer}
-          </p>
-        );
-      })
-
+      const isLast = i === answer.length - 1;
+      return (
+        <p
+          class="mt-0 ml-[18px]"
+          class:list={{ "mb-4": isLast, "mb-2": !isLast }}
+        >
+          {answer}
+        </p>
+      );
+    })
   }
-  {!!pictures.length && (
-    <div class="grid grid-cols-2 gap-4">
-      { pictures.map((picture) => (
-    <Picture src={picture.src} alt={picture.alt} className="aspect-square overflow-hidden object-cover" />
-  ))}
+  {
+    !!pictures.length && (
+      <div class="grid grid-cols-2 gap-4">
+        {pictures.map((picture) => (
+          <Picture
+            src={picture.src}
+            alt={picture.alt}
+            className="aspect-square overflow-hidden object-cover"
+            sizes="300px"
+          />
+        ))}
       </div>
-  )}
-
+    )
+  }
 </details>
