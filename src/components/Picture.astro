@@ -10,8 +10,8 @@ type Props = {
 
 const { src, alt, className, width, height } = Astro.props;
 
-const avifSrcset = src.sources.avif.map((i) => i.src).join(", ");
-const webpSrcset = src.sources.webp.map((i) => i.src).join(", ");
+const avifSrcset = src.sources.avif.map((i) => i.src + ` ${i.w}w`).join(", ");
+const webpSrcset = src.sources.webp.map((i) => i.src + ` ${i.w}w`).join(", ");
 ---
 
 <picture>
