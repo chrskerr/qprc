@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getBrisbaneDatetimeString } from "../lib/dates";
+import Map from "./Map.astro";
+import { meetingPoints } from "../lib/meetingPoints";
+
+type Props = {
+  run: CollectionEntry<"runs">;
+};
+
+const { run } = Astro.props;
+
+const labelId = `all-upcoming-runs-label-${run.slug}`;
+const meetingPoint = meetingPoints[run.data.meetingPoint];
+---
+
+{
+  !!meetingPoint && (
+    <article
+      aria-labelledby={labelId}
+      class="mb-6 grid gap-8 grid-cols-1 sm:grid-cols-[1fr_250px] [&:not(:last-of-type)]:border-b [&:not(:last-of-type)]:pb-6 last-of-type:mb-12"
+    >
+      <div class="flex flex-col justify-between">
+        <div>
+          <h3 id={labelId} class="mt-0">
+            {getBrisbaneDatetimeString(run.data.startTime)}
+          </h3>
+          <p class="mb-2">{meetingPoint.location}</p>
+        </div>
+        <a href={`/run/${run.slug}`}>More info</a>
+      </div>
+      <div>
+        <Map {meetingPoint} size="200" />
+      </div>
+    </article>
+  )
+}

@@ -6,6 +6,7 @@ import Layout from "../../../layouts/Layout.astro";
 import { shortTitle } from "../../../lib/constants";
 import Map from "../../../components/Map.astro";
 import { getBrisbaneDatetimeString } from "../../../lib/dates";
+import { meetingPoints } from "../../../lib/meetingPoints";
 
 export async function getStaticPaths() {
   const runs = await getCollection("runs");
@@ -23,6 +24,11 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 const formattedTime = getBrisbaneDatetimeString(entry.data.startTime);
+const meetingPoint = meetingPoints[entry.data.meetingPoint];
+
+if (!meetingPoint) {
+  return Astro.redirect("/");
+}
 ---
 
 <Layout title={`${formattedTime} - ${shortTitle}`}>
@@ -37,5 +43,9 @@ const formattedTime = getBrisbaneDatetimeString(entry.data.startTime);
       >contact & FAQs page</a
     > for info on how to message and photos of your group leads, Kate & Chris.
   </p>
-  <Map run={entry} />
+
+  <p class="mb-2">
+    <b>{meetingPoint.location}</b>
+  </p>
+  <Map {meetingPoint} />
 </Layout>

@@ -1,34 +1,25 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import { meetingPoints } from "../lib/meetingPoints";
+import type { MeetingPoint } from "../lib/meetingPoints";
 
 type Props = {
-  run: CollectionEntry<"runs">;
+  meetingPoint: MeetingPoint;
+  size?: string;
 };
 
-const { run } = Astro.props;
-const meetingPoint = meetingPoints[run.data.meetingPoint];
+const { meetingPoint, size } = Astro.props;
 ---
 
-{
-  !!meetingPoint && (
-    <>
-      <p class="mb-2">
-        <b>{meetingPoint.location}</b>
-      </p>
-      <iframe
-        title={`Map to ${meetingPoint.location}`}
-        src={meetingPoint.embedUrl}
-        width="100%"
-        height="250"
-        allowfullscreen={false}
-        referrerpolicy="no-referrer"
-        class="border"
-        loading="lazy"
-      />
-      <a href={meetingPoint.appleUrl}>
-        <small>Open in Apple Maps</small>
-      </a>
-    </>
-  )
-}
+<>
+  <iframe
+    title={`Map to ${meetingPoint.location}`}
+    src={meetingPoint.embedUrl}
+    width={size ?? "100%"}
+    height={size ?? "250"}
+    allowfullscreen={false}
+    referrerpolicy="no-referrer"
+    class="border"
+    loading="lazy"></iframe>
+  <a href={meetingPoint.appleUrl}>
+    <small>Open in Apple Maps</small>
+  </a>
+</>

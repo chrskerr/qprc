@@ -1,30 +1,13 @@
 ---
-import Map from "../../components/Map.astro";
+import RunCard from "../../components/RunCard.astro";
 import Layout from "../../layouts/Layout.astro";
 import { shortTitle } from "../../lib/constants";
-import { getBrisbaneDatetimeString } from "../../lib/dates";
-import { getUpcomingRuns } from "../../lib/runs";
+import { getSortedRuns } from "../../lib/runs";
 
-const runs = await getUpcomingRuns();
+const { upcoming } = await getSortedRuns();
 ---
 
 <Layout title={`Upcoming Runs - ${shortTitle}`}>
   <h2>Upcoming Runs</h2>
-  {
-    runs.map((run) => {
-      const labelId = `all-upcoming-runs-label-${run.slug}`;
-      return (
-        <article
-          aria-labelledby={labelId}
-          class="rounded-lg border border-gray-400 p-8 mb-12"
-        >
-          <h3 id={labelId} class="mt-0">
-            {getBrisbaneDatetimeString(run.data.startTime)}
-          </h3>
-          <a href={`/run/${run.slug}`}>More info</a>
-          <Map run={run} />
-        </article>
-      );
-    })
-  }
+  {upcoming.map((run) => <RunCard {run} />)}
 </Layout>
