@@ -9,6 +9,7 @@ const eventsCollection = defineCollection({
   schema: z.object({
     meetingPoint: ZodMeetingSpot,
     startTime: z.date(),
+    shortDescription: z.string(),
   }),
 });
 

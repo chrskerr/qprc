@@ -25,7 +25,8 @@ const meetingPoint = meetingPoints[run.data.meetingPoint];
           <h3 id={labelId} class="mt-0">
             {getBrisbaneDatetimeString(run.data.startTime)}
           </h3>
-          <p class="mb-2">{meetingPoint.location}</p>
+          <h4>{meetingPoint.location}</h4>
+          <p>{run.data.shortDescription}</p>
         </div>
         <a href={`/run/${run.slug}`}>More info</a>
       </div>

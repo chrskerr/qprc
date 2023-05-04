@@ -8,7 +8,7 @@ function getZonedTime(date: Date): Date {
 }
 
 export function getBrisbaneDatetimeString(date: Date): string {
-  return format(getZonedTime(date), "eee d MMM yyyy '@' h:mmaaa");
+  return format(getZonedTime(date), "h:mmaaa '-' eee d MMM yyyy");
 }
 
 export function getIcsDateArray(

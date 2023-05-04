@@ -8,6 +8,8 @@ const { upcoming } = await getSortedRuns();
 ---
 
 <Layout title={`Upcoming Runs - ${shortTitle}`}>
-  <h2>Upcoming Runs</h2>
-  {upcoming.map((run) => <RunCard {run} />)}
+  <section>
+    <h2>Upcoming Runs</h2>
+    {upcoming.map((run) => <RunCard {run} />)}
+  </section>
 </Layout>
