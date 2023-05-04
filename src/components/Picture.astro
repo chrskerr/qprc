@@ -1,0 +1,27 @@
+---
+
+type Props = {
+	src: PictureData;
+	alt: string;
+	className?: string;
+	width?: number;
+	height?: number;
+}
+
+const {src, alt, className, width, height} = Astro.props
+
+const avifSrcset = src.sources.avif.map((i) => i.src).join(", ");
+const webpSrcset = src.sources.webp.map((i) => i.src).join(", ");
+---
+
+<picture>
+	<source type="image/avif" srcset={avifSrcset} />
+	<source type="image/webp" srcset={webpSrcset} />
+	<img
+	  src={src.fallback.src}
+	  width={width ?? src.fallback.w }
+	  height={height ?? src.fallback.h }
+	  class={className}
+	  alt={alt}
+	/>
+  </picture>

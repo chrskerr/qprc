@@ -1,18 +1,22 @@
 ---
+import Picture from './Picture.astro';
+
 type Props = {
   question: string;
   answer: string | string[];
   open?: boolean;
+  pictures?: [{src: PictureData, alt: string,},{src: PictureData, alt: string,}]
 };
 
-const { question, answer, open = false } = Astro.props;
+const { question, answer, open = false, pictures = [] } = Astro.props;
+
+const answers = Array.isArray(answer) ? answer : [answer]
 ---
 
 <details open={open}>
   <summary class="font-bold mb-2">{question}</summary>
   {
-    Array.isArray(answer) ? (
-      answer.map((answer, i) => {
+    answers.map((answer, i) => {
         const isLast = i === answer.length - 1;
         return (
           <p
@@ -23,8 +27,14 @@ const { question, answer, open = false } = Astro.props;
           </p>
         );
       })
-    ) : (
-      <p class="mt-0 ml-[18px] mb-4">{answer}</p>
-    )
+
   }
+  {!!pictures.length && (
+    <div class="grid grid-cols-2 gap-4">
+      { pictures.map((picture) => (
+    <Picture src={picture.src} alt={picture.alt} className="aspect-square overflow-hidden object-cover" />
+  ))}
+      </div>
+  )}
+
 </details>

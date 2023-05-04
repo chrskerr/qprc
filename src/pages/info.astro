@@ -4,6 +4,10 @@ export const prerender = true;
 import Accordion from "../components/Accordion.astro";
 import Layout from "../layouts/Layout.astro";
 import { shortTitle } from "../lib/constants";
+
+import chris from "../images/chris_headshot.png?w=400,800&format=avif;webp;&picture";
+import kate from "../images/kate_headshot.png?w=400,800&format=avif;webp;&picture";
+
 ---
 
 <Layout title={`Info - ${shortTitle}`}>
@@ -28,8 +32,18 @@ import { shortTitle } from "../lib/constants";
     </li>
   </ol>
 
-  <h2>Questions</h2>
+  <h2>Questions</h2>  
 
+  <Accordion
+    question="I'm new, what do you look like so I can find you?"
+    answer={[
+      "Yay we're excited for you to join! Please look out for your group leads, Kate & Chris. Here's a photo of each of us so you know who to look for."
+    ]}
+    pictures={[
+      { src: kate, alt: "Kate headshot"},
+      { src: chris, alt: "Chris headshot"},
+    ]}
+  />
   <Accordion
     question="Who organises QPRC and why?"
     answer={[
@@ -43,5 +57,13 @@ import { shortTitle } from "../lib/constants";
   <Accordion
   question="Is there a minimal level of fitness required?"
   answer="No! You can walk as much as needed at anypoint during the run. If you're still not sure, then please reach out to us with any questions."
-/>
+  />
+  <Accordion
+      question="Do we run in bad weather?"
+      answer="Almost always yes! If it's just rain, we'll still be out running. If the weather is more hectic and unsafe, then we will update the event page to let you know if it's been cancelled."
+    />
+    <Accordion
+      question="How do I know if this week's run is on?"
+      answer="If the run is listed on the site - then it's happening! On the odd occasion that we need to cancel a run, it will be very clearly marked as 'cancelled event'. If you are ever unsure, please message the signal group chat to check in."
+    />
 </Layout>
