@@ -6,9 +6,10 @@ import { longTitle, metaDescription, socialImageLink } from "../lib/constants";
 
 type Props = {
   title: string;
+  activeHref: `/${string}`;
 };
 
-const { title } = Astro.props;
+const { title, activeHref } = Astro.props;
 
 const links: Array<{ label: string; href: string }> = [
   { label: "Home", href: "/" },
@@ -95,7 +96,7 @@ const jsonLdData = {
                   <a
                     href={link.href}
                     class:list={{
-                      "no-underline": link.href !== Astro.url.pathname,
+                      "no-underline": link.href !== activeHref,
                     }}
                   >
                     {link.label}
