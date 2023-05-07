@@ -11,14 +11,14 @@ type Props = {
 const { meetingPoint, size } = Astro.props;
 ---
 
-<>
+<div class="flex flex-col">
   <Picture
     src={meetingPoint.image}
     sizes={size ?? "(man-width: 640px) 100vw, 900px"}
     width={size ?? "100%"}
     height={200}
     alt={`Map showing a pin of ${meetingPoint.location}`}
-    className="h-[200px] object-cover"
+    className="h-[200px] object-cover m-0"
   />
   <a href={meetingPoint.appleUrl}>
     <small>Open in Apple Maps</small>
@@ -26,4 +26,4 @@ const { meetingPoint, size } = Astro.props;
   <a href={meetingPoint.googleUrl}>
     <small>Open in Google Maps</small>
   </a>
-</>
+</div>
