@@ -1,25 +1,29 @@
 ---
 import type { MeetingPoint } from "../lib/meetingPoints";
+import Picture from "./Picture.astro";
 
 type Props = {
   meetingPoint: MeetingPoint;
   size?: string;
+  width?: number;
 };
 
 const { meetingPoint, size } = Astro.props;
 ---
 
 <>
-  <iframe
-    title={`Map to ${meetingPoint.location}`}
-    src={meetingPoint.embedUrl}
+  <Picture
+    src={meetingPoint.image}
+    sizes={size ?? "(man-width: 640px) 100vw, 900px"}
     width={size ?? "100%"}
-    height={size ?? "250"}
-    allowfullscreen={false}
-    referrerpolicy="no-referrer"
-    class="border"
-    loading="lazy"></iframe>
+    height={200}
+    alt={`Map showing a pin of ${meetingPoint.location}`}
+    className="h-[200px] object-cover"
+  />
   <a href={meetingPoint.appleUrl}>
     <small>Open in Apple Maps</small>
+  </a>
+  <a href={meetingPoint.googleUrl}>
+    <small>Open in Google Maps</small>
   </a>
 </>

@@ -8,7 +8,7 @@ type Props = {
   sizes: string;
 };
 
-const { src, alt, className, width, height } = Astro.props;
+const { src, alt, className, width, height, sizes } = Astro.props;
 
 const avifSrcset = src.sources.avif.map((i) => i.src + ` ${i.w}w`).join(", ");
 const webpSrcset = src.sources.webp.map((i) => i.src + ` ${i.w}w`).join(", ");
@@ -23,5 +23,6 @@ const webpSrcset = src.sources.webp.map((i) => i.src + ` ${i.w}w`).join(", ");
     height={height ?? src.img.h}
     class={className}
     alt={alt}
+    {sizes}
   />
 </picture>
