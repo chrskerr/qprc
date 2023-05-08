@@ -10,13 +10,19 @@ type Props = {
 
 const { src, alt, className, width, height, sizes } = Astro.props;
 
-const avifSrcset = src.sources.avif.map((i) => i.src + ` ${i.w}w`).join(", ");
-const webpSrcset = src.sources.webp.map((i) => i.src + ` ${i.w}w`).join(", ");
+const sources = Object.entries(src.sources).map<{
+  type: string;
+  srcset: string;
+}>(([type, values]) => {
+  return {
+    type: `image/${type}`,
+    srcset: values.map((i) => i.src + ` ${i.w}w`).join(", "),
+  };
+});
 ---
 
 <picture>
-  <source type="image/avif" srcset={avifSrcset} {sizes} />
-  <source type="image/webp" srcset={webpSrcset} {sizes} />
+  {sources.map(({ type, srcset }) => <source {type} {srcset} {sizes} />)}
   <img
     src={src.img.src}
     width={width ?? src.img.w}
