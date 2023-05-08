@@ -4,21 +4,25 @@ import Picture from "./Picture.astro";
 
 type Props = {
   meetingPoint: MeetingPoint;
-  size?: string;
+  square?: true;
   width?: number;
 };
 
-const { meetingPoint, size } = Astro.props;
+const { meetingPoint, square } = Astro.props;
 ---
 
 <div class="flex flex-col">
   <Picture
     src={meetingPoint.image}
-    sizes={size ?? "(man-width: 640px) 100vw, 900px"}
-    width={size ?? "100%"}
-    height={200}
+    sizes={square
+      ? "(min-width: 640px) 200px, 100vw"
+      : "(min-width: 640px) 900px, 100vw"}
+    width={square ? "200px" : "100%"}
+    height="200px"
     alt={`Map showing a pin of ${meetingPoint.location}`}
-    className="h-[200px] object-cover m-0"
+    className={`w-full h-[200px] object-cover m-0 ${
+      square ? "sm:w-[200px]" : ""
+    }`}
   />
   <a href={meetingPoint.appleUrl}>
     <small>Open in Apple Maps</small>
