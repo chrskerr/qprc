@@ -1,12 +1,23 @@
 ---
 export const prerender = true;
 
+import Picture from "../components/Picture.astro";
 import Layout from "../layouts/Layout.astro";
 import { longTitle } from "../lib/constants";
+
+import alexHill from "../images/alex-hill-bottom.png?w=400;800;1200&format=avif;webp&as=picture";
 ---
 
 <Layout title={longTitle} activeHref="/">
+  <Picture
+    src={alexHill}
+    alt="A photo looking up the beach towards Maroochydore from Alexandra Headland"
+    sizes="(max-width: 640px) 400px, 100vw"
+    className="sm:float-right sm:w-[400px] sm:ml-4 mt-12 sm:mt-0 -mb-8 sm:mb-8"
+  />
+
   <h2>Home</h2>
+
   <p>Hey friends!</p>
 
   <p>
