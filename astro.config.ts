@@ -7,7 +7,7 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   output: "server",
   integrations: [tailwind()],
-  adapter: vercel(),
+  adapter: vercel({ analytics: true }),
   vite: {
     plugins: [imagetools()],
   },
