@@ -15,14 +15,13 @@ const webpSrcset = src.sources.webp.map((i) => i.src + ` ${i.w}w`).join(", ");
 ---
 
 <picture>
-  <source type="image/avif" srcset={avifSrcset} />
-  <source type="image/webp" srcset={webpSrcset} />
+  <source type="image/avif" srcset={avifSrcset} {sizes} />
+  <source type="image/webp" srcset={webpSrcset} {sizes} />
   <img
     src={src.img.src}
     width={width ?? src.img.w}
     height={height ?? src.img.h}
     class={className}
     alt={alt}
-    {sizes}
   />
 </picture>
