@@ -9,3 +9,13 @@ export const get: APIRoute = () => {
     }),
   };
 };
+
+export const post: APIRoute = () => {
+  callcount += 10;
+
+  return {
+    body: JSON.stringify({
+      message: "This was a POST!",
+    }),
+  };
+};
