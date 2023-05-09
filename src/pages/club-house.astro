@@ -18,7 +18,8 @@ import { shortTitle } from "../lib/constants";
     </ul>
     <li>
       App polls /api/club-house every 2secs and grabs the latest data, can this
-      be cached
+      be cached. See file example, seems that using same endpoint type will do
+      it, using something to split requests out.
     </li>
     <li>Expire all messages older than 1 hour</li>
     <li>Simple simple user accounts, can only post if logged in</li>
@@ -30,9 +31,6 @@ import { shortTitle } from "../lib/constants";
     <li>Get auth password from quickle.pickle@icloud.com to send email from</li>
   </ul>
 
-  <form method="post" action="/api/club-house">
-    <button type="submit">Add 10</button>
-  </form>
   <pre><code>
 {
 `type User {
