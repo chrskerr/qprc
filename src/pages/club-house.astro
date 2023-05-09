@@ -1,0 +1,49 @@
+---
+export const prerender = true;
+
+import Layout from "../layouts/Layout.astro";
+import { shortTitle } from "../lib/constants";
+---
+
+<Layout title={`Club house - ${shortTitle}`} activeHref="/club-house">
+  <h2>Club house</h2>
+
+  <p>To do:</p>
+  <ul>
+    <li>Choose to ui framework (or none)</li>
+    <li>Choose a db</li>
+    <ul>
+      <li>mongo: easy, no key expiry but can do in-code</li>
+      <li>postgres: easy, can lock table easily, migrations annoying</li>
+    </ul>
+    <li>
+      App polls /api/club-house every 2secs and grabs the latest data, can this
+      be cached
+    </li>
+    <li>Expire all messages older than 1 hour</li>
+    <li>Simple simple user accounts, can only post if logged in</li>
+    <li>
+      Magic link rather than user/password,
+      https://authjs.dev/reference/core/providers_email
+    </li>
+    <li>Can subscribe to email notifications, if they want</li>
+    <li>Get auth password from quickle.pickle@icloud.com to send email from</li>
+  </ul>
+
+  <pre><code>
+{
+`type User {
+	id: string;
+	email: string;
+	isSubscribed: boolean;
+}
+
+type Message {
+	id: string;
+	userId: string FK;
+	sentAt: DateTime;
+	content: string;
+}
+`}
+</code></pre>
+</Layout>
