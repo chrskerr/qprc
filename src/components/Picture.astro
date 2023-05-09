@@ -6,9 +6,10 @@ type Props = {
   width?: number | string;
   height?: number | string;
   sizes: string;
+  lazy?: true;
 };
 
-const { src, alt, className, width, height, sizes } = Astro.props;
+const { src, alt, className, width, height, sizes, lazy } = Astro.props;
 
 const sources = Object.entries(src.sources).map<{
   type: string;
@@ -29,5 +30,6 @@ const sources = Object.entries(src.sources).map<{
     height={height ?? src.img.h}
     class={className}
     alt={alt}
+    loading={lazy ? "lazy" : null}
   />
 </picture>

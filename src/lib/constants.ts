@@ -8,3 +8,4 @@ export const socialImageLink: `https://${string}` =
 export const emailAddress = "quickle.pickle@icloud.com";
 export const signalJoinLink =
   "https://signal.group/#CjQKIGlqYGaisbj7IpkudO8s9suHA4-nUW0rv6sfgH51TWUzEhAyF6Zzd6Bc-861TpbwTt8z";
+export const baseUrl = "https://www.qprc.com.au";

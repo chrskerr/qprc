@@ -17,12 +17,13 @@ const { meetingPoint, square } = Astro.props;
     sizes={square
       ? "(min-width: 640px) 200px, 100vw"
       : "(min-width: 640px) 900px, 100vw"}
-    width={square ? "200px" : "100%"}
-    height="200px"
+    width={square ? 200 : "100%"}
+    height={200}
     alt={`Map showing a pin of ${meetingPoint.location}`}
     className={`w-full h-[200px] object-cover m-0 ${
       square ? "sm:w-[200px]" : ""
     }`}
+    lazy
   />
   <a href={meetingPoint.appleUrl}>
     <small>Open in Apple Maps</small>
