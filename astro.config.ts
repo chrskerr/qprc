@@ -4,18 +4,11 @@ import { imagetools } from "vite-imagetools";
 import tailwind from "@astrojs/tailwind";
 import { baseUrl } from "./src/lib/constants";
 
-import prefetch from "@astrojs/prefetch";
-
 // https://astro.build/config
 export default defineConfig({
   site: baseUrl,
   output: "server",
-  integrations: [
-    tailwind(),
-    prefetch({
-      selector: "a[href^='/']",
-    }),
-  ],
+  integrations: [tailwind()],
   adapter: vercel({
     analytics: true,
   }),
