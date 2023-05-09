@@ -3,7 +3,7 @@ export const prerender = true;
 
 import Accordion from "../components/Accordion.astro";
 import Layout from "../layouts/Layout.astro";
-import { shortTitle } from "../lib/constants";
+import { emailAddress, shortTitle, signalJoinLink } from "../lib/constants";
 
 import chris from "../images/chris_headshot.png?w=400;800&format=avif;webp&as=picture";
 import kate from "../images/kate_headshot.png?w=400;800&format=avif;webp&as=picture";
@@ -14,15 +14,16 @@ import kate from "../images/kate_headshot.png?w=400;800&format=avif;webp&as=pict
 
   <p>
     Please feel free to get in touch with us for any questions, thoughts or
-    feedback. The easiest approach is one of the following two ways:
+    feedback. You can use one of the following ways:
   </p>
 
   <ol>
     <li>
-      <a
-        href="https://signal.group/#CjQKIGlqYGaisbj7IpkudO8s9suHA4-nUW0rv6sfgH51TWUzEhAyF6Zzd6Bc-861TpbwTt8z"
-        >Join our QPRC Signal group chat</a
-      >
+      <a href={signalJoinLink}>Join our Signal group chat</a>
+    </li>
+    <li>
+      Email us at
+      <a href={`mailto:${emailAddress}`}>{emailAddress}</a>
     </li>
     <li>
       Show up at one of the runs. Newbies are always welcome and we add new
