@@ -6,13 +6,20 @@ import Layout from "../layouts/Layout.astro";
 import { longTitle } from "../lib/constants";
 import { alexHill, chris, kate } from "../lib/pictures";
 
-const photoClasses = "sm:w-[400px] aspect-square object-cover m-0 mt-6";
+const photoClasses = "w-full sm:w-[300px] aspect-square object-cover m-0 mt-6";
 ---
 
 <Layout title={longTitle} activeHref="/">
-  <main class="sm:grid sm:grid-cols-[1fr_300px] sm:gap-4">
-    <section class="mt-12">
-      <p class="mt-0">Hey friends!</p>
+  <main>
+    <section>
+      <Picture
+        src={alexHill}
+        alt="A photo looking up the beach towards Maroochydore from Alexandra Headland"
+        sizes="(min-width: 640px) 400px, 100vw"
+        className="sm:float-right sm:w-[400px] sm:ml-4 mt-12 sm:mt-2 -mb-8 sm:mb-8"
+      />
+
+      <p class="mt-12">Hey friends!</p>
 
       <p>
         Come join us for a run, chat and drink every Wednesday afternoon around
@@ -59,27 +66,20 @@ const photoClasses = "sm:w-[400px] aspect-square object-cover m-0 mt-6";
       </p>
     </section>
 
-    <aside class="mt-6">
-      <Picture
-        src={alexHill}
-        alt="A photo looking up the beach towards Maroochydore from Alexandra Headland"
-        sizes="(min-width: 640px) 300px, 100vw"
-        className={photoClasses}
-      />
-
+    <section class="mt-6 flex justify-center gap-4">
       <Picture
         src={kate}
         alt="Kate Hobbs profile photo"
-        sizes="(min-width: 640px) 300px, 100vw"
+        sizes="(min-width: 640px) 300px, 50vw"
         className={photoClasses}
       />
 
       <Picture
         src={chris}
         alt="Chris Kerr profile photo"
-        sizes="(min-width: 640px) 300px, 100vw"
+        sizes="(min-width: 640px) 300px, 50vw"
         className={photoClasses}
       />
-    </aside>
+    </section>
   </main>
 </Layout>
