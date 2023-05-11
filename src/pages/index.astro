@@ -11,62 +11,60 @@ const photoClasses = "w-full sm:w-[300px] aspect-square object-cover m-0 mt-6";
 
 <Layout title={longTitle} activeHref="/">
   <main>
-    <section>
-      <Picture
-        src={alexHill}
-        alt="A photo looking up the beach towards Maroochydore from Alexandra Headland"
-        sizes="(min-width: 640px) 400px, 100vw"
-        className="sm:float-right sm:w-[400px] sm:ml-4 mt-12 sm:mt-2 -mb-8 sm:mb-8"
-      />
+    <Picture
+      src={alexHill}
+      alt="A photo looking up the beach towards Maroochydore from Alexandra Headland"
+      sizes="(min-width: 640px) 400px, 100vw"
+      className="sm:float-right sm:w-[400px] sm:ml-4 mt-12 sm:mt-2 -mb-8 sm:mb-8"
+    />
 
-      <p class="mt-12">Hey friends!</p>
+    <p class="mt-12">Hey friends!</p>
 
-      <p>
-        Come join us for a run, chat and drink every Wednesday afternoon around
-        the Maroochydore/Alexandra Headlands area.
-      </p>
+    <p>
+      Come join us for a run, chat and drink every Wednesday afternoon around
+      the Maroochydore/Alexandra Headlands area.
+    </p>
 
-      <p>
-        The whole session takes about 1 hour, with 20-25 minutes of hard work in
-        the middle. The warm-up and cooldown will cover 2-3km, and the core will
-        vary with your speed, but you can do as much or as little as you like.
-      </p>
+    <p>
+      The whole session takes about 1 hour, with 20-25 minutes of hard work in
+      the middle. The warm-up and cooldown will cover 2-3km, and the core will
+      vary with your speed, but you can do as much or as little as you like.
+    </p>
 
-      <p>
-        It's always planned in way that ensures everyone gets in a great session
-        no matter your level of fitness and speediness!
-      </p>
+    <p>
+      It's always planned in way that ensures everyone gets in a great session
+      no matter your level of fitness and speediness!
+    </p>
 
-      <p>The typical structure is:</p>
-      <ul>
-        <li>Usually Wednesdays, usually 5:30pm, always near Maroochydore.</li>
-        <li>
-          We meet somewhere near both a nice running spot and a venue for those
-          keen after the run.
-        </li>
-        <li>Start with a warmup as a group, 1-2km.</li>
-        <li>
-          Then 20-25 minutes of running intervals at everyones individual pace,
-          <ul class="list-[lower-roman]">
-            <li>e.g. run hard to that tree, walk back to this tree, repeat.</li>
-          </ul>
-        </li>
-        <li>Finally, we jog together back to the start as a cooldown.</li>
-        <li>Optionally stick around for a drink!</li>
-      </ul>
+    <p>The typical structure is:</p>
+    <ul>
+      <li>Usually Wednesdays, usually 5:30pm, always near Maroochydore.</li>
+      <li>
+        We meet somewhere near both a nice running spot and a venue for those
+        keen after the run.
+      </li>
+      <li>Start with a warmup as a group, 1-2km.</li>
+      <li>
+        Then 20-25 minutes of running intervals at everyones individual pace,
+        <ul class="list-[lower-roman]">
+          <li>e.g. run hard to that tree, walk back to this tree, repeat.</li>
+        </ul>
+      </li>
+      <li>Finally, we jog together back to the start as a cooldown.</li>
+      <li>Optionally stick around for a drink!</li>
+    </ul>
 
-      <p>
-        Check out the upcoming runs for exact locations and reach out to Kate or
-        Chris if you have any questions. No cost to join!
-      </p>
+    <p>
+      Check out the upcoming runs for exact locations and reach out to Kate or
+      Chris if you have any questions. No cost to join!
+    </p>
 
-      <p>
-        We are all about having fun and not taking ourselves too seriously. We'd
-        love to see you for a run soon!
-      </p>
-    </section>
+    <p>
+      We are all about having fun and not taking ourselves too seriously. We'd
+      love to see you for a run soon!
+    </p>
 
-    <section class="mt-6 flex justify-center gap-4">
+    <div class="flex justify-center gap-4">
       <Picture
         src={kate}
         alt="Kate Hobbs profile photo"
@@ -80,6 +78,6 @@ const photoClasses = "w-full sm:w-[300px] aspect-square object-cover m-0 mt-6";
         sizes="(min-width: 640px) 300px, 50vw"
         className={photoClasses}
       />
-    </section>
+    </div>
   </main>
 </Layout>
