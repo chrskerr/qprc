@@ -32,20 +32,22 @@ if (!meetingPoint) {
 ---
 
 <Layout title={`${formattedTime} - ${shortTitle}`} activeHref="/run">
-  <h2>{formattedTime}</h2>
-  <Content />
-  <p>
-    After every run, we'll pick somewhere nearby for a drink or a meal, so
-    please feel free to hang around for as long as you'd like!
-  </p>
-  <p>
-    Not sure how to find the group? Check out the <a href="/info"
-      >contact & FAQs page</a
-    > for info on how to message and photos of your group leads, Kate & Chris.
-  </p>
+  <main>
+    <h2>{formattedTime}</h2>
+    <Content />
+    <p>
+      After every run, we'll pick somewhere nearby for a drink or a meal, so
+      please feel free to hang around for as long as you'd like!
+    </p>
+    <p>
+      Not sure how to find the group? Check out the <a href="/info"
+        >contact & FAQs page</a
+      > for info on how to message and photos of your group leads, Kate & Chris.
+    </p>
 
-  <p class="mb-2">
-    <b>{meetingPoint.location}</b>
-  </p>
-  <Map {meetingPoint} />
+    <p class="mb-2">
+      <b>{meetingPoint.location}</b>
+    </p>
+    <Map {meetingPoint} />
+  </main>
 </Layout>

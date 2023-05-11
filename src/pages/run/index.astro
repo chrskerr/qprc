@@ -8,8 +8,10 @@ const { upcoming } = await getSortedRuns();
 ---
 
 <Layout title={`Upcoming Runs - ${shortTitle}`} activeHref="/run">
-  <section>
-    <h2>Upcoming Runs</h2>
-    {upcoming.map((run) => <RunCard {run} />)}
-  </section>
+  <main>
+    <section>
+      <h2>Upcoming Runs</h2>
+      {upcoming.map((run) => <RunCard {run} />)}
+    </section>
+  </main>
 </Layout>
