@@ -13,7 +13,7 @@ type PictureData = {
 
 // https://github.com/JonasKruckenberg/imagetools/blob/main/docs/directives.md#picture
 
-declare module "*&format=avif;webp&as=picture" {
+declare module "*?w=256;512;768;1024;2048&format=avif;webp&as=picture" {
   const out: PictureData;
   export default out;
 }
