@@ -14,7 +14,7 @@ export function getBrisbaneDatetimeString(date: Date): string {
 export function getIcsDateArray(
   date: Date
 ): [number, number, number, number, number] {
-  return formatUtc(date, "yyyy MM d k m").split(" ").map(Number) as [
+  return formatUtc(date, "yyyy MM d H m").split(" ").map(Number) as [
     number,
     number,
     number,
