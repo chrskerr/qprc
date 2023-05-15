@@ -10,6 +10,7 @@ const eventsCollection = defineCollection({
     meetingPoint: ZodMeetingSpot,
     startTime: z.date(),
     shortDescription: z.string(),
+    cancelledReason: z.string().optional(),
   }),
 });
 

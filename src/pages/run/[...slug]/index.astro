@@ -29,11 +29,22 @@ const meetingPoint = meetingPoints[entry.data.meetingPoint];
 if (!meetingPoint) {
   return Astro.redirect("/");
 }
+
+const isCancelled = !!entry.data.cancelledReason;
 ---
 
 <Layout title={`${formattedTime} - ${shortTitle}`} activeHref="/run">
   <main>
-    <h2>{formattedTime}</h2>
+    <h2>
+      <span class:list={{ "line-through mr-2": isCancelled }}
+        >{formattedTime}</span
+      >{isCancelled && <span>CANCELLED</span>}
+    </h2>
+    {
+      isCancelled && (
+        <p class="text-lg font-bold">Update: {entry.data.cancelledReason}</p>
+      )
+    }
     <Content />
     <p>
       After every run, we'll pick somewhere nearby for a drink or a meal, so
