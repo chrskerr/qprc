@@ -24,7 +24,7 @@ async function generateIcs() {
           startInputType: "utc",
           startOutputType: "utc",
           duration: { hours: 2 },
-          status: run.data.cancelledReason ? "CONFIRMED" : "CANCELLED",
+          status: !!run.data.cancelledReason ? "CANCELLED" : "CONFIRMED",
           title: `RUN: ${longTitle}`,
           location: meetingPoint.location,
           url: `https://www.qprc.com.au/run/${run.slug}`,
