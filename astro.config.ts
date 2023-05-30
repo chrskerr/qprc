@@ -9,9 +9,7 @@ export default defineConfig({
   site: baseUrl,
   output: "server",
   integrations: [tailwind()],
-  adapter: vercel({
-    analytics: true,
-  }),
+  adapter: vercel(),
   vite: {
     plugins: [imagetools()],
   },
